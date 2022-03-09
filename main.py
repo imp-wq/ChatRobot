@@ -83,6 +83,7 @@ def chatRobot():
     # Coverting the text into the indexes
     train_story_seq = tokenizer.texts_to_sequences(train_story_text)
 
+    print(story)
     # Create a function for vectorizing the stories, questions and answers:
     def vectorize_stories(data, word_index=tokenizer.word_index, max_story_len=max_story_len,
                           max_question_len=max_question_len):
