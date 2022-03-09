@@ -10,7 +10,7 @@ from keras.layers.embeddings import Embedding
 from keras.layers import Input, Activation, Dense, Permute, Dropout, add, dot, concatenate, LSTM
 
 
-EPOCH_TIMES=2
+EPOCH_TIMES=500
 
 def chatRobot():
     # part1
