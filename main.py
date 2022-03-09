@@ -186,9 +186,12 @@ def chatRobot():
 
     print(model.summary())
 
-    history = model.fit([inputs_train, questions_train], answers_train, batch_size=32, epochs=1000,
+    history = model.fit([inputs_train, questions_train], answers_train, batch_size=32, epochs=2,
                         validation_data=([inputs_test, questions_test], answers_test))
-    print(history)
+
+    print('-------------------------')
+    print(history.history)
+    print('-------------------------')
 
     filename = 'Z_chatbot_100_epochs.h5'
     model.save(filename)
@@ -200,8 +203,13 @@ def chatRobot():
     print(history.history.keys())
     # summarize history for accuracy
     plt.figure(figsize=(12, 12))
-    plt.plot(history.history['acc'])
-    plt.plot(history.history['val_acc'])
+
+    #plt.plot(history.history['acc'])
+    #plt.plot(history.history['val_acc'])
+
+    plt.plot(history.history['accuracy'])
+    plt.plot(history.history['val_accuracy'])
+
     plt.title('model accuracy')
     plt.ylabel('accuracy')
     plt.xlabel('epoch')
